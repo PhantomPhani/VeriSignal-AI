@@ -16,11 +16,11 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Enable CORS for Vite frontend
+# Enable CORS for Vite frontend / external clients
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )

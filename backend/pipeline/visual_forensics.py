@@ -3,9 +3,10 @@ import numpy as np
 import os
 from typing import Dict, Any
 
-# Path to bundled Haar cascade XML (downloaded from opencv/opencv GitHub)
 _CASCADE_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "cascades")
 _FACE_CASCADE_PATH = os.path.join(_CASCADE_DIR, "haarcascade_frontalface_default.xml")
+if not os.path.exists(_FACE_CASCADE_PATH):
+    _FACE_CASCADE_PATH = os.path.join(cv2.data.haarcascades, "haarcascade_frontalface_default.xml")
 
 def analyze_visual_forensics(video_path: str, max_samples: int = 60) -> Dict[str, Any]:
     """

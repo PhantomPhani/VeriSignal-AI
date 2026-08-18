@@ -4,9 +4,10 @@ import numpy as np
 from typing import Dict, Any, List, Optional, Tuple
 import scipy.signal as signal
 
-# Path to bundled Haar cascade XML
 _CASCADE_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "cascades")
 _FACE_CASCADE_PATH = os.path.join(_CASCADE_DIR, "haarcascade_frontalface_default.xml")
+if not os.path.exists(_FACE_CASCADE_PATH):
+    _FACE_CASCADE_PATH = os.path.join(cv2.data.haarcascades, "haarcascade_frontalface_default.xml")
 
 def analyze_av_sync(video_path: str) -> Dict[str, Any]:
     """
