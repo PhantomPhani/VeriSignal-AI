@@ -7,6 +7,9 @@
 [![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-3.4-38B2AC.svg)](https://tailwindcss.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+[![Deploy to Render](https://render.com/images/deploy-to-render.svg)](https://render.com/deploy?repo=https://github.com/PhantomPhani/VeriSignal-AI)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/PhantomPhani/VeriSignal-AI)
+
 **VeriSignal** is an advanced research and demo-grade deepfake detection tool that analyzes uploaded video clips using three independent algorithmic detection branches and fuses them into a unified probabilistic authenticity confidence score.
 
 ---
