@@ -31,6 +31,17 @@ os.makedirs(TEMP_DIR, exist_ok=True)
 MAX_FILE_SIZE_BYTES = 50 * 1024 * 1024  # 50 MB
 MAX_DURATION_SECONDS = 35.0  # ~30s clip limit
 
+@app.get("/")
+def root():
+    return {
+        "status": "online",
+        "service": "VeriSignal Deepfake Reality Checker API",
+        "docs": "/docs",
+        "health": "/api/health",
+        "version": "1.0.0"
+    }
+
+@app.get("/health")
 @app.get("/api/health")
 def health_check():
     return {
