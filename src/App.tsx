@@ -40,14 +40,16 @@ export const App: React.FC = () => {
 
     try {
       let response: Response;
+      const apiBase = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
       try {
-        response = await fetch('/api/analyze', {
+        response = await fetch(`${apiBase}/api/analyze`, {
           method: 'POST',
           body: formData,
         });
       } catch (primaryErr) {
-        // Fallback to direct backend URL if proxy fails
-        response = await fetch('http://127.0.0.1:8000/api/analyze', {
+        // Fallback to local default endpoint if relative/configured endpoint fails
+        const fallbackUrl = apiBase ? `${apiBase}/api/analyze` : 'http://127.0.0.1:8000/api/analyze';
+        response = await fetch(fallbackUrl, {
           method: 'POST',
           body: formData,
         });
